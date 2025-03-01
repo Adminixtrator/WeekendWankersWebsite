@@ -219,7 +219,7 @@ d="M31.287 0H60.9294L37.859 49.4941C35.8401 53.8252 34.8307 55.9908 35.1365 57.6
         </div>
       </main>
       
-      <style jsx>{`
+      <style>{`
         @keyframes bounce {
           0%, 100% {
             transform: translateY(0) scale(1);
