@@ -3,32 +3,10 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link'
 
 import { config } from '../dapp.config'
+import Image from 'next/image';
 
-const BouncingImage = ({ imageUrl, delay, position }) => {
-  const [animationStyle, setAnimationStyle] = useState({});
-  
-  useEffect(() => {
-    const styles = {
-      animation: `bounce 4s infinite ${delay}s ease-in-out`,
-      position: 'absolute',
-      ...position
-    };
-    setAnimationStyle(styles);
-  }, [delay, position]);
-  
-  return (
-    <div style={animationStyle} className="w-full h-full md:w-[40%] md:h-[40%] overflow-hidden shadow-lg">
-      <img 
-        src={imageUrl} 
-        alt="Lucky NFT Character" 
-        className="w-full h-full object-cover"
-      />
-    </div>
-  );
-};
 
 const LuckyWeekendWankersNFT = () => {
-  // Lucky theme with light green color palette
   const colors = {
     primary: '#7AB87A',
     secondary: '#A3D9A3',
@@ -47,7 +25,6 @@ const LuckyWeekendWankersNFT = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      {/* Background image - positioned at bottom left, blurred */}
       <div className="absolute bottom-0 left-0 w-1/3 h-1/3 md:w-1/4 md:h-1/4 opacity-60 z-0 md:blur-sm md:block hidden" 
            style={{
              background: 'url("/images/Nerd-32.png") no-repeat',
@@ -63,7 +40,6 @@ const LuckyWeekendWankersNFT = () => {
         <h1 className="md:text-2xl text-xl font-bold" style={{ color: colors.lucky }}>Weekend Wankers NFTs</h1>
 
         <div className="flex items-center gap-2">
-          {/* Opensea Twitter Discord Links */}
           <nav aria-label="Contact Menu">
             <ul className="flex items-center space-x-4 md:space-x-8">
               <li className="cursor-pointer">
@@ -115,19 +91,30 @@ d="M31.287 0H60.9294L37.859 49.4941C35.8401 53.8252 34.8307 55.9908 35.1365 57.6
           
           <div className="flex flex-col items-center">
             
-            <div className="md:w-[80%] w-full h-full overflow-hidden shadow-xl shadow-[#d7ecd7]/10 mx-16 rounded-md md:mb-8 mb-0" style={{
+            <div className="md:w-[80%] w-full h-full overflow-hidden shadow-xl shadow-[#d7ecd7]/5 mx-16 rounded-md md:mb-8 mb-0 bg-white/5" style={{
               animation: `bounce 4s infinite 0s ease-in-out`,
             }}>
-              <img 
-                src="/images/Nerd-22.jpg"
-                alt="Lucky NFT Character" 
-                className="w-full h-full object-cover md:block hidden"
-              />
-              <img 
-                src="/images/Nerd-26.jpg"
-                alt="Lucky NFT Character" 
-                className="w-full h-full object-cover md:hidden block"
-              />
+              <div className="w-full h-full object-cover md:block hidden">
+                <Image 
+                  src="/images/Nerd-22.jpg"
+                  alt="Lucky NFT Character"
+                  objectFit="cover"
+                  layout="responsive"
+                  height={600}
+                  width={600}
+                />
+              </div>
+
+              <div className="w-full h-full object-cover md:hidden block">
+                <Image 
+                  src="/images/Nerd-26.jpg"
+                  alt="Lucky NFT Character"
+                  objectFit="cover"
+                  layout="responsive"
+                  height={600}
+                  width={600}
+                />
+              </div>
             </div>
             
               <Link href="/mint" passHref>
