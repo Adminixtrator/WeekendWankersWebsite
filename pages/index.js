@@ -180,7 +180,7 @@ d="M31.287 0H60.9294L37.859 49.4941C35.8401 53.8252 34.8307 55.9908 35.1365 57.6
               <br />
               
               <div className="grid grid-cols-1 gap-3">
-                <div className="bg-black bg-opacity-30 backdrop-blur-md p-3 rounded-md shadow-md border-l-4" style={{ borderColor: colors.lucky }}>
+                <div className="bg-black backdrop-blur-md p-3 rounded-md shadow-md border-l-4" style={{ borderColor: colors.lucky }}>
                 <p className="font-medium text-navajoWhite">
                     Wanklist Mint: January 21st, 4:20pm ET
                   </p>
@@ -193,7 +193,7 @@ d="M31.287 0H60.9294L37.859 49.4941C35.8401 53.8252 34.8307 55.9908 35.1365 57.6
                   </div>
                 </div>
                 
-                <div className="bg-black bg-opacity-30 backdrop-blur-md p-3 rounded-md shadow-sm border-l-4" style={{ borderColor: colors.lucky }}>
+                <div className="bg-black backdrop-blur-md p-3 rounded-md shadow-sm border-l-4" style={{ borderColor: colors.lucky }}>
                   <p className="font-medium text-navajoWhite">
                     Public Mint: January 21st, 4:30pm ET
                   </p>
