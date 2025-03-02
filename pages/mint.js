@@ -381,7 +381,7 @@ function Mint() {
 
             <div>
                 <div className="h-[0.5px] bg-[#5cbb5c] bg-opacity-40 w-full mt-12"/>
-                <h1 className="text-navajoWhite text-center mb-4 mt-8 text-2xl">CONTARCT ADDRESS</h1>
+                <h1 className="text-navajoWhite text-center mb-4 mt-8 text-2xl">CONTRACT ADDRESS</h1>
                 <p className="text-sm font-mono text-white text-center">{config.contractAddress}</p>
                     
             </div>
