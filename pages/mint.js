@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from 'react';
-import { ethers } from 'ethers';
-import MyContractABI from '../contracts/MyContractABI.json';
-import { config } from '../dapp.config';
-import Image from 'next/image';
-import QuantitySelector from './quantitySelector';
+import React, { useState, useEffect } from "react";
+import { ethers } from "ethers";
+import MyContractABI from "../contracts/MyContractABI.json";
+import { config } from "../dapp.config";
+import Image from "next/image";
+import QuantitySelector from "./quantitySelector";
 
 // Network settings
-const REQUIRED_CHAIN_ID = '0x1'; // Ethereum Mainnet (1 in hex)
-const NETWORK_NAME = 'Ethereum Mainnet';
+const REQUIRED_CHAIN_ID = "0x1"; // Ethereum Mainnet (1 in hex)
+const NETWORK_NAME = "Ethereum Mainnet";
 
 function Mint() {
   const [account, setAccount] = useState(null);
@@ -17,8 +17,8 @@ function Mint() {
   const [minValue, setMinValue] = useState(1);
   const [maxValue, setMaxValue] = useState(5);
   const [isMinting, setIsMinting] = useState(false);
-  const [transactionHash, setTransactionHash] = useState('');
-  const [errorMessage, setErrorMessage] = useState('');
+  const [transactionHash, setTransactionHash] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
   const [isCorrectChain, setIsCorrectChain] = useState(false);
 
   useEffect(() => {
@@ -41,7 +41,7 @@ function Mint() {
 
   async function checkNetwork() {
     try {
-      const chainId = await window.ethereum.request({ method: 'eth_chainId' });
+      const chainId = await window.ethereum.request({ method: "eth_chainId" });
       setIsCorrectChain(chainId === REQUIRED_CHAIN_ID);
       return chainId === REQUIRED_CHAIN_ID;
     } catch (error) {
@@ -53,7 +53,7 @@ function Mint() {
   async function switchNetwork() {
     try {
       await window.ethereum.request({
-        method: 'wallet_switchEthereumChain',
+        method: "wallet_switchEthereumChain",
         params: [{ chainId: REQUIRED_CHAIN_ID }],
       });
       return true;
@@ -87,7 +87,7 @@ function Mint() {
           setAccount(accounts[0]);
         }
         
-        window.ethereum.on('accountsChanged', (accounts) => {
+        window.ethereum.on("accountsChanged", (accounts) => {
           if (accounts.length > 0) {
             setAccount(accounts[0]);
           } else {
@@ -95,7 +95,7 @@ function Mint() {
           }
         });
         
-        window.ethereum.on('chainChanged', () => {
+        window.ethereum.on("chainChanged", () => {
           window.location.reload();
         });
       } else {
@@ -112,14 +112,14 @@ function Mint() {
       if (!provider) return;
       
       const accounts = await window.ethereum.request({
-        method: 'eth_requestAccounts'
+        method: "eth_requestAccounts"
       });
       
       setAccount(accounts[0]);
       
       const correctChain = await checkNetwork();
       if (!correctChain) {
-        alert(`You're on the wrong network. Please switch to ${NETWORK_NAME}`);
+        alert(`You are on the wrong network. Please switch to ${NETWORK_NAME}`);
       }
     } catch (error) {
       console.error("Error connecting wallet:", error);
@@ -132,14 +132,14 @@ function Mint() {
     
     const correctChain = await checkNetwork();
     if (!correctChain) {
-      alert(`You're on the wrong network. Please switch to ${NETWORK_NAME}`);
+      alert(`You are on the wrong network. Please switch to ${NETWORK_NAME}`);
       const switched = await switchNetwork();
       if (!switched) return;
     }
     
     try {
       setIsMinting(true);
-      setErrorMessage('');
+      setErrorMessage("");
       
       const totalPrice = ethers.utils.parseEther(
         (config.price * quantity).toString()
@@ -163,7 +163,7 @@ function Mint() {
   }
 
   function handleMintError(error) {
-    if (error.code === 'INSUFFICIENT_FUNDS') {
+    if (error.code === "INSUFFICIENT_FUNDS") {
       setErrorMessage("INSUFFICIENT_FUNDS + GAS for mint");
     } else {
       setErrorMessage(error.message || "Failed to mint NFT");
@@ -171,8 +171,8 @@ function Mint() {
   }
 
   const colors = {
-    button: 'linear-gradient(135deg,rgb(91, 176, 91) 20%, #000 80%)',
-    mintbutton: 'linear-gradient(135deg, #000 20%, rgb(91, 176, 91) 80%)',
+    button: "linear-gradient(135deg,rgb(91, 176, 91) 20%, #000 80%)",
+    mintbutton: "linear-gradient(135deg, #000 20%, rgb(91, 176, 91) 80%)",
   };
 
   // 5cbb5c
@@ -183,10 +183,10 @@ function Mint() {
       <div className="absolute bottom-0 left-0 w-1/3 h-1/3 md:w-1/4 md:h-1/4 opacity-60 z-0 md:blur-sm md:block hidden" 
           style={{
             background: 'url("/images/Nerd-32.png") no-repeat',
-            backgroundSize: 'contain',
-            transform: 'rotate(-5deg)',
-          //  height: '5rem',
-            filter: 'blur(2px)'
+            backgroundSize: "contain",
+            transform: "rotate(-5deg)",
+          //  height: "5rem",
+            filter: "blur(2px)"
           }}>
       </div>
 
@@ -232,29 +232,29 @@ function Mint() {
                             onClick={decrement}
                             disabled={quantity <= minValue}
                             style={{
-                            width: '50px',
-                            height: '50px',
-                            borderRadius: '10px',
-                            border: 'none',
-                            backgroundColor: quantity <= minValue ? '#262221' : '#5cbb5c',
-                            color: 'white',
-                            fontSize: '20px',
-                            cursor: quantity <= minValue ? 'not-allowed' : 'pointer',
-                            display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: 'center'
+                            width: "50px",
+                            height: "50px",
+                            borderRadius: "10px",
+                            border: "none",
+                            backgroundColor: quantity <= minValue ? "#262221" : "#5cbb5c",
+                            color: "white",
+                            fontSize: "20px",
+                            cursor: quantity <= minValue ? "not-allowed" : "pointer",
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "center"
                             }}
                         >
                             −
                         </button>
                         
                         <div style={{
-                            margin: '0 15px',
-                            fontSize: '18px',
-                            fontWeight: 'bold',
-                            width: '40px',
-                            color: 'white',
-                            textAlign: 'center'
+                            margin: "0 15px",
+                            fontSize: "18px",
+                            fontWeight: "bold",
+                            width: "40px",
+                            color: "white",
+                            textAlign: "center"
                         }}>
                             {quantity}
                         </div>
@@ -263,17 +263,17 @@ function Mint() {
                             onClick={increment}
                             disabled={quantity >= maxValue}
                             style={{
-                            width: '50px',
-                            height: '50px',
-                            borderRadius: '10px',
-                            border: 'none',
-                            backgroundColor: quantity >= maxValue ? '#262221' : '#5cbb5c',
-                            color: 'white',
-                            fontSize: '20px',
-                            cursor: quantity >= maxValue ? 'not-allowed' : 'pointer',
-                            display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: 'center'
+                            width: "50px",
+                            height: "50px",
+                            borderRadius: "10px",
+                            border: "none",
+                            backgroundColor: quantity >= maxValue ? "#262221" : "#5cbb5c",
+                            color: "white",
+                            fontSize: "20px",
+                            cursor: quantity >= maxValue ? "not-allowed" : "pointer",
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "center"
                             }}
                         >
                             +
@@ -309,11 +309,11 @@ function Mint() {
                             onClick={mintNFT}
                             disabled={isMinting || quantity > config.maxMintAmount || !isCorrectChain}
                             className="py-4 px-6 text-2xl rounded-2xl text-white border border-[#5cbb5c] w-full mx-auto mt-4" style={{
-                              background: !isCorrectChain ? 'red' : colors.mintbutton,
-                              cursor: isMinting || !isCorrectChain ? 'not-allowed' : 'pointer',
+                              background: !isCorrectChain ? "red" : colors.mintbutton,
+                              cursor: isMinting || !isCorrectChain ? "not-allowed" : "pointer",
                               opacity: isMinting ? 0.7 : 1
                             }}>
-                            {isMinting ? 'Minting...' : `Mint ${quantity} Wanker${quantity > 1 ? 's' : ''}`}
+                            {isMinting ? "Minting..." : `Mint ${quantity} Wanker${quantity > 1 ? "s" : ""}`}
                           </button>
                           
                           {errorMessage && <p className="mt-4 text-center font-mono text-[#db3434] text-sm">{errorMessage}</p>}
@@ -325,7 +325,7 @@ function Mint() {
                                 href={`https://etherscan.io/tx/${transactionHash}`}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                style={{ marginLeft: '5px', color: '#3498db' }}
+                                style={{ marginLeft: "5px", color: "#3498db" }}
                                 >
                                 View on Etherscan
                                 </a>
@@ -336,15 +336,15 @@ function Mint() {
 
                     {!isCorrectChain && account && (
                     <div style={{ 
-                        backgroundColor: '#FFEBEE', 
-                        color: '#D32F2F', 
-                        padding: '10px', 
-                        borderRadius: '5px',
-                        margin: '10px 0',
-                        textAlign: 'center'
+                        backgroundColor: "#FFEBEE", 
+                        color: "#D32F2F", 
+                        padding: "10px", 
+                        borderRadius: "5px",
+                        margin: "10px 0",
+                        textAlign: "center"
                         }}>
-                        <p style={{ margin: '0 0 10px 0' }}>
-                            You're connected to the wrong network! Switch to {NETWORK_NAME}
+                        <p style={{ margin: "0 0 10px 0" }}>
+                            You&quot;re connected to the wrong network! Switch to {NETWORK_NAME}
                         </p>
                         </div>
                     )}
