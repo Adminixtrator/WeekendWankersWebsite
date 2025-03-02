@@ -66,7 +66,7 @@ function Mint() {
 
   async function checkIfWalletIsConnected() {
     try {
-      if (window.ethereum) {
+      // if (window.ethereum) {
         const provider = new ethers.providers.Web3Provider(window.ethereum);
         setProvider(provider);
         
@@ -98,34 +98,61 @@ function Mint() {
         window.ethereum.on("chainChanged", () => {
           window.location.reload();
         });
-      } else {
-        setErrorMessage("Please install MetaMask or another Ethereum wallet");
-      }
+      // } else {
+      //   setErrorMessage("Please install MetaMask or another Ethereum wallet");
+      // }
     } catch (error) {
       console.error(error);
-      setErrorMessage("Error connecting to wallet");
+      // setErrorMessage("Error connecting to wallet");
     }
   }
 
   async function connectWallet() {
-    try {
-      if (!provider) return;
+  try {
+    if (window.ethereum) {
+      const providers = [];
       
-      const accounts = await window.ethereum.request({
-        method: "eth_requestAccounts"
-      });
+      if (window.ethereum.isMetaMask) providers.push("MetaMask");
+      if (window.ethereum.isCoinbaseWallet) providers.push("Coinbase Wallet");
+      if (window.ethereum.isWalletConnect) providers.push("WalletConnect");
+      if (window.ethereum.isTrust) providers.push("Trust Wallet");
+      if (window.ethereum.isTokenary) providers.push("Tokenary");
       
-      setAccount(accounts[0]);
-      
-      const correctChain = await checkNetwork();
-      if (!correctChain) {
-        alert(`You are on the wrong network. Please switch to ${NETWORK_NAME}`);
+      if (providers.length > 0) {
+        const accounts = await window.ethereum.request({
+          method: "eth_requestAccounts"
+        });
+        
+        setAccount(accounts[0]);
+        
+        const correctChain = await checkNetwork();
+        if (!correctChain) {
+          alert(`You are on the wrong network. Please switch to ${NETWORK_NAME}`);
+        }
+      } else {
+        const accounts = await window.ethereum.request({
+          method: "eth_requestAccounts"
+        });
+        setAccount(accounts[0]);
       }
-    } catch (error) {
-      console.error("Error connecting wallet:", error);
-      setErrorMessage("Failed to connect wallet");
+    } else {
+      if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+        if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+          window.open('https://apps.apple.com/us/app/metamask/id1438144202', '_blank');
+        } else {
+          window.open('https://play.google.com/store/apps/details?id=io.metamask', '_blank');
+        }
+      } else {
+        window.open('https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn', '_blank');
+      }
+      
+      setErrorMessage("No Ethereum wallet detected. Please install MetaMask or another wallet.");
     }
+  } catch (error) {
+    console.error("Error connecting wallet:", error);
+    setErrorMessage("Failed to connect wallet");
   }
+}
 
   async function mintNFT() {
     if (!account || !contract) return;
