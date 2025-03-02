@@ -12,7 +12,7 @@ const LuckyWeekendWankersNFT = () => {
     secondary: '#A3D9A3',
     accent: '#4A8F4A',
     // background: 'linear-gradient(135deg, #f0f9f0 0%, #d7ecd7 100%)',
-    background: 'linear-gradient(135deg, #d7ecd7 20%, #fff 80%)',
+    background: 'linear-gradient(135deg, #fff 20%, #d7ecd7 80%)',
     text: '#2E4D2E',
     lucky: '#5cbb5c'
   };
