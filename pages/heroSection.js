@@ -9,15 +9,13 @@ export default function HeroSection() {
     setIsPopupOpen(!isPopupOpen);
   };
 
-  // Effect to disable/enable scrolling when modal is open/closed
   useEffect(() => {
     if (isPopupOpen) {
       document.body.style.overflow = 'hidden';
     } else {
-      document.body.style.overflow = ''; // Reset to default
+      document.body.style.overflow = '';
     }
 
-    // Cleanup to ensure scrolling is re-enabled if component unmounts
     return () => {
       document.body.style.overflow = '';
     };
