@@ -43,10 +43,10 @@ export default function HeroSection() {
           Connect Wallet & Mint
         </button>
         <p className="mt-6 text-md md:text-lg text-white/80 drop-shadow-md">
-          🎭 Your Lucky Hands NFT = Your Seat at the Game.
+          🎭 Your $LUCKY Hands NFT = Your Seat at the Game.
         </p>
         <p className="text-sm md:text-md text-white/60 drop-shadow-md">
-          Only Lucky Hands holders can play. Only Lucky holders can win.
+          Only Lucky Hands holders can play. Only $LUCKY holders can win.
         </p>
       </div>
       <div className="mt-8 md:mt-0 md:w-1/2 flex justify-center">

@@ -13,15 +13,15 @@ export default function WhyLuckySection() {
       />
       </div>
       <div className="md:w-1/2 px-4">
-        <h2 className="text-2xl font-bold text-gold text-center md:text-left mb-8 font-coiny">Why This Supports $Lucky 🍀</h2>
-        <p className="text-white/90 text-sm md:text-base">Everything being built fuels $Lucky&apos;s value:</p>
+        <h2 className="text-2xl font-bold text-gold text-center md:text-left mb-8 font-coiny">Why This Supports $LUCKY 🍀</h2>
+        <p className="text-white/90 text-sm md:text-base">Everything being built fuels $LUCKY&apos;s value:</p>
         <ul className="list-disc pl-6 mt-4 space-y-2 text-white/90 text-sm md:text-base">
           <li>Staking locks supply, increasing value</li>
-          <li>The game creates demand & buy pressure for $Lucky</li>
+          <li>The game creates demand & buy pressure for $LUCKY</li>
           <li>The mint funds buybacks, staking rewards, and game prizes</li>
         </ul>
         <p className="mt-6 text-md md:text-lg text-white/80">
-          Lucky Hands isn&apos;t separate from $Lucky. It strengthens it.
+          Lucky Hands isn&apos;t separate from $LUCKY. It strengthens it.
         </p>
         <p className="text-sm md:text-md text-white/60 italic mt-2">
           &ldquo;Only 777 can sit at this table. Don&apos;t miss your chance.&ldquo;

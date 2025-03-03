@@ -4,13 +4,13 @@ export default function HowItWorksSection() {
   return (
     <section className="py-16 border-b border-gold/20 flex flex-col md:flex-row items-center justify-between">
       <div className="mb-8 md:mb-0 md:w-1/2 flex justify-center">
-      <Image 
-        src="/images/Nerd-28.jpg"
-        alt="Poker Table"
-        width={320}
-        height={320}
-        className="w-64 h-64 md:w-80 md:h-80 object-cover float-bounce rounded-lg shadow-lg"
-      />
+        <Image
+          src="/images/Nerd-28.jpg"
+          alt="Poker Table"
+          width={320}
+          height={320}
+          className="w-64 h-64 md:w-80 md:h-80 object-cover float-bounce rounded-lg shadow-lg"
+        />
       </div>
       <div className="md:w-1/2 px-4">
         <h2 className="text-2xl md:text-3xl font-bold text-gold text-center md:text-left mb-8 font-coiny">How The Game Works 🃏</h2>
@@ -30,7 +30,7 @@ export default function HowItWorksSection() {
           <p>1. Best poker hand of the week = weekly prize</p>
           <p>2. Match jackpot cards = jackpot payout</p>
           <p className="text-white/60">Jackpot prizes roll over if there&apos;s no winner.</p>
-          <p className="mt-4 text-gold">🚨 You&apos;ll need a Lucky Hands NFT & $Lucky to play each week.</p>
+          <p className="mt-4 text-gold">🚨 You&apos;ll need a Lucky Hands NFT & $LUCKY to play each week.</p>
         </div>
       </div>
     </section>

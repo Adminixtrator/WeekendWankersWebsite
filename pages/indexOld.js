@@ -107,7 +107,7 @@ const LuckyWeekendWankersNFT = () => {
             </div>
             <Link href="/mint" passHref>
               <a className="md:hidden block my-12 font-coiny inline-flex items-center px-6 py-2 text-m text-3xl font-medium text-center rounded hover:text-white" style={{ color: colors.lucky }}>
-                Mint LUCKY here
+                Mint $LUCKY here
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="w-6 h-6 ml-2 mt-0.5"
@@ -137,7 +137,7 @@ const LuckyWeekendWankersNFT = () => {
             <div className="md:block hidden">
               <Link href="/mint" passHref>
                 <a className="my-12 font-coiny px-6 inline-flex items-center text-m text-3xl font-medium text-center rounded hover:text-white" style={{ color: colors.lucky }}>
-                  Mint LUCKY here
+                  Mint $LUCKY here
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="w-6 h-6 ml-2 mt-0.5"
