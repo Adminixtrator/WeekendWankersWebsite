@@ -1,6 +1,6 @@
 const config = {
-  title: 'Weekend Wankers',
-  description: 'WANKERS',
+  title: 'Lucky Hands',
+  description: 'LUCKY',
   contractAddress: '0xE45A480170662A9Cc65B51822e0D58Fc55dA8031',
   maxMintAmount: 5,
   presaleMaxMintAmount: 1,

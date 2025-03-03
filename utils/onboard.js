@@ -8,7 +8,7 @@ import ApeIcon from '../Ape';
 const injected = injectedModule();
 
 const walletConnectOptions = {
-  projectId: 'WANKERS',
+  projectId: 'LUCKY',
   requiredChains: [43114],
   optionalChains: [43113],
   dappUrl: 'http://WeekendWankers.xyz',
@@ -33,9 +33,9 @@ const initOnboard = init({
 
   ],
   appMetadata: {
-    name: 'Weekend Wankers',
+    name: 'Lucky Hands',
     icon: ApeIcon,
-    description: 'WANKERS',
+    description: 'LUCKY',
     recommendedInjectedWallets: [
       { name: 'MetaMask', url: 'https://metamask.io' },
       { name: 'Coinbase', url: 'https://wallet.coinbase.com/' },
