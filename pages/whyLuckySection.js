@@ -24,7 +24,7 @@ export default function WhyLuckySection() {
           Weekend Wankers isn&apos;t separate from $Wankers. It strengthens it.
         </p>
         <p className="text-sm md:text-md text-white/60 italic mt-2">
-          "Only 777 can sit at this table. Don&apos;t miss your chance."
+          &ldquo;Only 777 can sit at this table. Don&apos;t miss your chance.&ldquo;
         </p>
       </div>
     </section>

@@ -29,7 +29,7 @@ export default function HeroSection() {
         </h1>
         <p className="text-xl md:text-2xl mt-4 text-white/90 drop-shadow-md">7.77 AVAX</p>
         <p className="text-lg md:text-xl mt-2 italic text-white/70 drop-shadow-md">
-          "777 hands. Only the best will sit at the table."
+          &ldquo;777 hands. Only the best will sit at the table.&ldquo;
         </p>
         <div className="mt-6">
           <p className="text-md md:text-lg">Mint Price: <span className="text-gold">7.77 AVAX</span></p>

@@ -32,7 +32,7 @@ export default function Home() {
         <FAQSection />
       </main>
 
-      <style jsx global>{`
+      <style>{`
         @keyframes float {
           0%, 100% { transform: translateY(0) rotate(var(--tw-rotate)); }
           50% { transform: translateY(-20px) rotate(var(--tw-rotate)); }

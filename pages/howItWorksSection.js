@@ -15,7 +15,7 @@ export default function HowItWorksSection() {
       <div className="md:w-1/2 px-4">
         <h2 className="text-2xl md:text-3xl font-bold text-gold text-center md:text-left mb-8 font-coiny">How The Game Works 🃏</h2>
         <p className="text-center md:text-left text-md md:text-lg italic text-white/70 mb-6">
-          "It&apos;s poker, but you don&apos;t have to play your hand. You just have to hold it."
+          &ldquo;It&apos;s poker, but you don&apos;t have to play your hand. You just have to hold it.&ldquo;
         </p>
         <div className="space-y-4 text-white/90 text-sm md:text-base">
           <p>Each week, a new deck contract is deployed (52 cards) with VRF:</p>
