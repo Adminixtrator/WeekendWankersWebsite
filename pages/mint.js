@@ -1,9 +1,9 @@
 import Head from "next/head";
-import HeroSection from "./HeroSection";
-import HowItWorksSection from "./HowItWorksSection";
-import MintDetailsSection from "./MintDetailsSection";
-import WhyLuckySection from "./WhyLuckySection";
-import FAQSection from "./FAQSection";
+import HeroSection from "./heroSection";
+import HowItWorksSection from "./howItWorksSection";
+import MintDetailsSection from "./mintDetailsSection";
+import WhyLuckySection from "./whyLuckySection";
+import FAQSection from "./fAQSection";
 
 export default function Home() {
   return (    
