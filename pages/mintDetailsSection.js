@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 export default function MintDetailsSection() {
   return (
     <section className="py-16 border-b border-gold/20 flex flex-col md:flex-row items-center justify-between">
@@ -11,15 +13,17 @@ export default function MintDetailsSection() {
           <p>777 total supply, 231 already airdropped to whole coiners</p>
           <p>Revenue from first 100 paid mints → buybacks for staking rewards</p>
           <p>80% of remaining proceeds → Game prize pool</p>
-          <p>20% of remaining proceeds → Marketing for Lucky Hands & $Lucky</p>
+          <p>20% of remaining proceeds → Marketing for Weekend Wankers & $Wankers</p>
         </div>
       </div>
       <div className="mt-8 md:mt-0 md:w-1/2 flex justify-center">
-        <img 
-          src="/images/Nerd-31.jpg" 
-          alt="Gold Coins" 
-          className="w-64 h-64 md:w-80 md:h-80 object-cover float-bounce rounded-lg shadow-lg"
-        />
+      <Image 
+        src="/images/Nerd-31.jpg"
+        alt="Gold Coins"
+        width={320}
+        height={320}
+        className="w-64 h-64 md:w-80 md:h-80 object-cover float-bounce rounded-lg shadow-lg"
+      />
       </div>
     </section>
   );

@@ -31,7 +31,7 @@ const LuckyWeekendWankersNFT = () => {
       </div>
       
       <header className="md:py-6 py-10 mb-6 flex justify-center items-center relative z-10 bg-white bg-opacity-10 backdrop-blur-md border border-white border-opacity-30 rounded-md m-2 md:px-24 px-4">
-        <div className="md:w-[70%] w-full flex justify-between">
+        <div className="xl:w-[70%] w-full flex justify-between">
           <h1 className="md:text-2xl text-xl font-bold" style={{ color: colors.lucky }}>Weekend Wankers NFTs</h1>
           <div className="flex items-center gap-2">
             <nav aria-label="Contact Menu">
