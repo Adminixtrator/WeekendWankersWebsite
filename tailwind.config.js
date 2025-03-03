@@ -19,7 +19,8 @@ module.exports = {
         'brand-light': 'var(--clr-light)',
         'navajoWhite': 'var(--navajo-White)',
         'browner' : 'var(--brown-er)',
-        'brand-background': 'var(--clr-background)'
+        'brand-background': 'var(--clr-background)',
+        'gold': "#FFD700",
       },
       animation: {
         'pulse-slow': 'pulse 10s linear infinite'

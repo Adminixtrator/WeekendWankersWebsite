@@ -4,6 +4,7 @@
 @tailwind components;
 @tailwind utilities;
 
+
 :root {
   --font-family: 'Open Sans', sans-serif;
   --clr-light: #f0e9e9;
@@ -58,6 +59,20 @@
   --onboard-warning-500: #ffaf00;
   --onboard-warning-600: #cc8c00;
   --onboard-warning-700: #664600;
+}
+
+body {
+  background-color: black;
+  color: white;
+}
+
+@keyframes floatBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.float-bounce {
+  animation: floatBounce 3s ease-in-out infinite;
 }
 
 html {
