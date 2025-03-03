@@ -25,7 +25,7 @@ export default function HeroSection() {
     <section className="py-20 border-b border-gold/20 flex flex-col md:flex-row items-center justify-between relative">
       <div className="text-center md:text-left md:w-1/2 px-4">
         <h1 className="text-4xl md:text-6xl font-bold text-gold tracking-tight drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]">
-          Weekend Wankers NFT Mint
+          Lucky Hands NFT Mint
         </h1>
         <p className="text-xl md:text-2xl mt-4 text-white/90 drop-shadow-md">7.77 AVAX</p>
         <p className="text-lg md:text-xl mt-2 italic text-white/70 drop-shadow-md">
@@ -43,16 +43,16 @@ export default function HeroSection() {
           Connect Wallet & Mint
         </button>
         <p className="mt-6 text-md md:text-lg text-white/80 drop-shadow-md">
-          🎭 Your Weekend Wankers NFT = Your Seat at the Game.
+          🎭 Your Lucky Hands NFT = Your Seat at the Game.
         </p>
         <p className="text-sm md:text-md text-white/60 drop-shadow-md">
-          Only Weekend Wankers holders can play. Only Lucky holders can win.
+          Only Lucky Hands holders can play. Only Lucky holders can win.
         </p>
       </div>
       <div className="mt-8 md:mt-0 md:w-1/2 flex justify-center">
         <Image 
           src="/images/Nerd-26.jpg"
-          alt="Weekend Wankers NFT"
+          alt="Lucky Hands NFT"
           width={320}
           height={320}
           className="w-64 h-64 md:w-80 md:h-80 object-cover float-bounce rounded-lg shadow-[0_0_15px_rgba(255,215,0,0.3)]"

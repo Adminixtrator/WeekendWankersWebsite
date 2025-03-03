@@ -13,7 +13,7 @@ export default function MintDetailsSection() {
           <p>777 total supply, 231 already airdropped to whole coiners</p>
           <p>Revenue from first 100 paid mints → buybacks for staking rewards</p>
           <p>80% of remaining proceeds → Game prize pool</p>
-          <p>20% of remaining proceeds → Marketing for Weekend Wankers & $Wankers</p>
+          <p>20% of remaining proceeds → Marketing for Lucky Hands & $Lucky</p>
         </div>
       </div>
       <div className="mt-8 md:mt-0 md:w-1/2 flex justify-center">

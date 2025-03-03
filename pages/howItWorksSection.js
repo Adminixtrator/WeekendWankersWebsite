@@ -30,7 +30,7 @@ export default function HowItWorksSection() {
           <p>1. Best poker hand of the week = weekly prize</p>
           <p>2. Match jackpot cards = jackpot payout</p>
           <p className="text-white/60">Jackpot prizes roll over if there&apos;s no winner.</p>
-          <p className="mt-4 text-gold">🚨 You&apos;ll need a Weekend Wankers NFT & $Wankers to play each week.</p>
+          <p className="mt-4 text-gold">🚨 You&apos;ll need a Lucky Hands NFT & $Lucky to play each week.</p>
         </div>
       </div>
     </section>
