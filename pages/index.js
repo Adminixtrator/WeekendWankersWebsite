@@ -15,7 +15,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-yellow-400 to-yellow-900 flex flex-col items-center justify-center text-black font-comic-sans">
-      <div className="absolute inset-0 bg-yellow-500 opacity-50"></div> {/* Subtle overlay to maintain readability */}
+      <div className="absolute inset-0 bg-yellow-500 opacity-50"></div>
       <Head>
         <title>Lucky Coin</title>
         <meta name="description" content="Lucky Coin - A meme coin for those always in the moment!" />
@@ -92,7 +92,7 @@ export default function Home() {
       </header>
         
       <Link href="/mint" passHref>
-            <a className="mt-32 font-coiny inline-flex items-center text-3xl font-medium text-center text-yellow-900 z-10">
+            <a className="mt-32 font-coiny inline-flex items-center text-3xl font-medium text-center text-yellow-900 z-10 drop-shadow-[0_2px_2px_rgba(0,0,0,0.3)]">
             Mint $LUCKY here
             <svg
                 xmlns="http://www.w3.org/2000/svg"
