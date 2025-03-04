@@ -121,13 +121,13 @@ export default function Home() {
         />
         <div className="bg-yellow-300 p-6 rounded-lg mt-2 shadow-xl transform hover:scale-102 transition-all duration-300 text-center drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]">
           <p className="mt-2">
-            Luck isn't random. It's a mindset.
+            Luck isn&apos;t random. It&apos;s a mindset.
             777 supply. Infinitely divisible. A meme coin for those who are always in the moment.
           </p>
 
         <h2 className="font-coiny mt-8 text-xl">ABOUT LUCKY COIN</h2>
           <p className="mt-2">
-            Lucky Coin isn't just a token-it's a way of thinking. Luck favors those who are present, prepared, and ready to act. With only 777 full coins, ownership is scarce, but luck isn't about how much you hold-it's about holding the right thing. This isn't another copy-paste token. It's a movement built on serendipity, discipline, and knowing when to click.
+            Lucky Coin isn&apos;t just a token-it&apos;s a way of thinking. Luck favors those who are present, prepared, and ready to act. With only 777 full coins, ownership is scarce, but luck isn&apos;t about how much you hold-it&apos;s about holding the right thing. This isn&apos;t another copy-paste token. It&apos;s a movement built on serendipity, discipline, and knowing when to click.
           </p>
 
           <p className="mt-6 font-bold">
