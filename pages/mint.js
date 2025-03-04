@@ -48,7 +48,7 @@ export default function Home() {
         }
 
         .font-coiny {
-          font-family: 'Comic Sans MS', cursive, sans-serif;
+          font-family: 'Comic Sans MS';
         }
 
         @keyframes float {
