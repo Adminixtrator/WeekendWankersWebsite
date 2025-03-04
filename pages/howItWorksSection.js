@@ -3,7 +3,7 @@ import Image from 'next/image';
 export default function HowItWorksSection() {
   return (
     <section className="py-16 border-b border-gold/20 flex flex-col md:flex-row items-center justify-between">
-      <div className="mb-8 md:mb-0 md:w-1/2 flex justify-center">
+      <div className="mb-8 md:mb-0 md:w-1/2 flex justify-center drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]">
         <Image
           src="/images/Nerd-28.jpg"
           alt="Poker Table"
@@ -15,7 +15,7 @@ export default function HowItWorksSection() {
       <div className="md:w-1/2 px-4">
         <h2 className="text-2xl md:text-3xl font-bold text-gold text-center md:text-left mb-8 font-coiny">How The Game Works 🃏</h2>
         <p className="text-center md:text-left text-md md:text-lg italic text-white/70 mb-6">
-          &ldquo;It&apos;s poker, but you don&apos;t have to play your hand. You just have to hold it.&ldquo;
+          It&apos;s poker, but you don&apos;t have to play your hand. You just have to hold it.
         </p>
         <div className="space-y-4 text-white/90 text-sm md:text-base">
           <p>Each week, a new deck contract is deployed (52 cards) with VRF:</p>

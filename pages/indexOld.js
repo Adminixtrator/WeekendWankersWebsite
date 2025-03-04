@@ -164,7 +164,7 @@ const LuckyWeekendWankersNFT = () => {
                 <div className="grid grid-cols-1 gap-3">
                   <div className="bg-black backdrop-blur-md p-3 rounded-md shadow-md border-l-4" style={{ borderColor: colors.lucky }}>
                     <p className="font-medium text-navajoWhite">
-                      Wanklist Mint: January 21st, 4:20pm ET
+                      Mint: January 21st, 4:20pm ET
                     </p>
                     <p style={{ color: colors.accent }}>Free for those Wanklisted, Max 1</p>
                     <div className="text-xs mt-1 flex items-center" style={{ color: colors.lucky }}>

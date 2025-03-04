@@ -137,13 +137,13 @@ export default function PublicSale() {
 
   return (
     <div className="flex flex-col items-center w-full font-coiny text-white">
-      <h1 className="text-3xl md:text-4xl text-[#5cbb5c] mb-8 drop-shadow-md">PUBLIC SALE</h1>
+      <h1 className="text-3xl md:text-4xl text-yellow-400 mb-8 drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]">PUBLIC SALE</h1>
 
       <div className="flex flex-col md:flex-row justify-between gap-6 w-full">
         <div className="flex relative justify-center md:w-1/2">
-          <div className="rounded-md border border-[#5cbb5c]/50 overflow-hidden h-[320px]">
+          <div className="rounded-md border border-[#5cbb5c]/50 overflow-hidden h-[320px] drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]">
             <Image 
-              src="/images/Nerd-27.jpg"
+              src="/images/green.jpeg"
               alt="Lucky NFT Character"
               width={260}
               height={320}
@@ -156,7 +156,7 @@ export default function PublicSale() {
           </div>
         </div>
         
-        <div className="flex flex-col md:w-1/2 items-center">
+        <div className="flex flex-col md:w-1/2 items-center mt-8">
           <div className="flex items-center justify-between mb-6">
             <button 
               onClick={decrement}
@@ -178,7 +178,7 @@ export default function PublicSale() {
           <div className="h-px bg-[#5cbb5c]/30 w-full mb-4" />
           <div className="flex justify-between w-full text-xl text-white mb-4">
             <p>Total</p>
-            <p>{quantity} ETH <span className="text-navajoWhite">+ GAS</span></p>
+            <p>{quantity * 7.77} <span className="text-orange-400 drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]">AVAX</span></p>
           </div>
           <div className="h-px bg-[#5cbb5c]/30 w-full mb-6" />
 
@@ -186,7 +186,7 @@ export default function PublicSale() {
             <div className="w-full">
               <button 
                 onClick={connectWallet}
-                className="w-full py-3 px-6 text-xl bg-[#090909] text-white border border-[#5cbb5c] rounded-lg hover:bg-[#090909]/80 transition"
+                className="w-full py-3 px-6 text-xl bg-green-900 text-white border border-green-600 rounded-lg hover:bg-yellow-900/80 transition drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]"
               >
                 CONNECT WALLET
               </button>
@@ -224,9 +224,9 @@ export default function PublicSale() {
       </div>
 
       <div className="w-full mt-8">
-        <div className="h-px bg-[#5cbb5c]/40 w-full mb-4" />
-        <h1 className="text-xl text-white text-center mb-2">CONTRACT ADDRESS</h1>
-        <p className="text-sm text-[#5cbb5c] text-center break-all">{config.contractAddress}</p>
+        <div className="h-px bg-yellow-400/40 w-full mb-4" />
+        <h1 className="text-lg text-white font-semibold text-center mb-2">CONTRACT ADDRESS</h1>
+        <p className="text-sm text-yellow-400 text-center break-all drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]">{config.contractAddress}</p>
       </div>
     </div>
   );

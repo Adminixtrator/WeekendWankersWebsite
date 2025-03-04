@@ -6,7 +6,7 @@ export default function MintDetailsSection() {
       <div className="text-center md:text-left md:w-1/2 px-4">
         <h2 className="text-2xl md:text-3xl font-bold text-gold mb-8 font-coiny">Mint Details 💰</h2>
         <p className="text-md md:text-lg italic text-white/70 mb-6">
-          &ldquo;This isn&apos;t just an NFT. It&apos;s your hand. Play it right.&ldquo;
+          This isn&apos;t just an NFT. It&apos;s your hand. Play it right.
         </p>
         <div className="space-y-4 text-white/90 text-sm md:text-base">
           <p>Mint Price: <span className="text-gold">7.77 AVAX</span></p>
@@ -16,7 +16,7 @@ export default function MintDetailsSection() {
           <p>20% of remaining proceeds → Marketing for Lucky Hands & $LUCKY</p>
         </div>
       </div>
-      <div className="mt-8 md:mt-0 md:w-1/2 flex justify-center">
+      <div className="mt-8 md:mt-0 md:w-1/2 flex justify-center drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]">
       <Image 
         src="/images/Nerd-31.jpg"
         alt="Gold Coins"

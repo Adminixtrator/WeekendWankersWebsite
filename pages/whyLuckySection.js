@@ -3,7 +3,7 @@ import Image from 'next/image';
 export default function WhyLuckySection() {
   return (
     <section className="py-16 border-b border-gold/20 flex flex-col md:flex-row items-center justify-between">
-      <div className="mb-8 md:mb-0 md:w-1/2 flex justify-center">
+      <div className="mb-8 md:mb-0 md:w-1/2 flex justify-center drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]">
       <Image 
         src="/images/Nerd-30.jpg"
         alt="Lucky Clover"
@@ -24,7 +24,7 @@ export default function WhyLuckySection() {
           Lucky Hands isn&apos;t separate from $LUCKY. It strengthens it.
         </p>
         <p className="text-sm md:text-md text-white/60 italic mt-2">
-          &ldquo;Only 777 can sit at this table. Don&apos;t miss your chance.&ldquo;
+          Only 777 can sit at this table. Don&apos;t miss your chance.
         </p>
       </div>
     </section>

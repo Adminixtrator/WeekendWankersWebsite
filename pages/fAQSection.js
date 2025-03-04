@@ -7,20 +7,20 @@ export default function FAQSection() {
           <h2 className="text-2xl md:text-3xl font-bold text-gold mb-8 font-coiny">FAQ 🤔</h2>
           <div className="space-y-6 text-white/90 text-sm md:text-base">
             <div>
-              <p className="font-semibold">Q: How do I play the Weekend Wankers game?</p>
-              <p>A: You&apos;ll need a Weekend Wankers NFT + a TBA amount of $Wankers to enter each week.</p>
+              <p className="font-semibold">Q: How do I play the Lucky Hands game?</p>
+              <p>A: You&apos;ll need a <strong>Lucky Hands NFT</strong> + and a <strong>TBA amount of $Lucky</strong> to enter each week.</p>
             </div>
             <div>
               <p className="font-semibold">Q: What happens if there&apos;s no jackpot winner?</p>
               <p>A: Prizes roll over to the next round.</p>
             </div>
             <div>
-              <p className="font-semibold">Q: Is Weekend Wankers part of $Wankers?</p>
-              <p>A: 100%. Everything being built is designed to support & strengthen $Wankers.</p>
+              <p className="font-semibold">Q: Is Lucky Hands part of $Lucky?</p>
+              <p>A: 100%. Everything being built is designed to support & strengthen $Lucky</p>
             </div>
           </div>
         </div>
-        <div className="mt-8 md:mt-0 md:w-1/2 flex justify-center">
+        <div className="mt-8 md:mt-0 md:w-1/2 flex justify-center drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]">
           <Image 
             src="/images/IMG_2152.jpg"
             alt="Poker Chips"
