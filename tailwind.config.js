@@ -8,7 +8,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        'comic-sans': ["Comic Sans MS"],
+        'comic-sans': ["Comic Neue"],
         'coiny': ['Coiny', ...defaultTheme.fontFamily.sans]
       },
       colors: {

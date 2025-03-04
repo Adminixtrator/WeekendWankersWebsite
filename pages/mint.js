@@ -9,13 +9,12 @@ import FAQSection from "./fAQSection";
 
 export default function Home() {
   return (    
-    <div className="min-h-screen bg-gradient-to-b from-yellow-900 to-yellow-500 flex flex-col items-center justify-center text-black font-coiny">
+    <div className="min-h-screen bg-gradient-to-b from-yellow-900 to-yellow-500 flex flex-col items-center justify-center text-black font-open-sans">
       <Head>
         <title>Lucky Hands NFT Mint</title>
         <meta name="description" content="Exclusive NFT mint for Lucky Hands" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
-        {/* Add comic-style font if needed */}
         <link
           href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap"
           rel="stylesheet"
@@ -43,12 +42,11 @@ export default function Home() {
 
       <style>{`
         @font-face {
-          font-family: 'Comic Sans MS';
-          src: local('Comic Sans MS'), url('/comicsans.woff2') format('woff2');
+          font-family: 'Coiny', 'Comic Neue', 'Comic Sans MS', sans-serif;
         }
-
-        .font-coiny {
-          font-family: 'Comic Sans MS';
+        
+        .font-open-sans {
+          font-family: 'Comic Neue';
         }
 
         @keyframes float {

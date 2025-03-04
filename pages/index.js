@@ -196,16 +196,15 @@ export default function Home() {
         <p className="mt-2">© 2025 $Lucky. All rights reserved.</p>
       </footer>
 
-      {/* <style>{`
+      <style>{`
         @font-face {
-          font-family: 'Coiny, Comic Sans MS';
-          src: local('Comic Sans MS'), url('/comicsans.woff2') format('woff2');
+          font-family: 'Coiny', 'Comic Neue', 'Comic Sans MS', sans-serif;
         }
-
-        .font-coiny {
-          font-family: 'Comic Sans MS', cursive, sans-serif;
+        
+        .font-open-sans {
+          font-family: 'Comic Neue';
         }
-      `}</style> */}
+      `}</style>
     </div>
   );
 }
