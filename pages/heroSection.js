@@ -30,10 +30,10 @@ export default function HeroSection() {
         <p className="text-lg md:text-xl mt-2 italic text-white/70 drop-shadow-md">
           777 hands. Only the best will sit at the table.
         </p>
-        <div className="mt-6">
-          <p className="text-md md:text-lg">Mint Price: <span className="text-gold">7.77 AVAX</span></p>
-          <p className="text-md md:text-lg">Supply: <span className="text-gold">777 Total</span></p>
-          <p className="text-md md:text-lg">Mint Date: <span className="text-gold">Thursday 10am CST</span></p>
+        <div className="mt-6 text-white">
+          <p className="text-lg">Mint Price: <span className="text-gold">7.77 AVAX</span></p>
+          <p className="text-lg">Supply: <span className="text-gold">777 Total</span></p>
+          <p className="text-lg">Mint Date: <span className="text-gold">Thursday 10am CST</span></p>
         </div>
         <button 
           onClick={togglePopup}
@@ -41,10 +41,10 @@ export default function HeroSection() {
         >
           Connect Wallet & Mint
         </button>
-        <p className="mt-6 text-md md:text-lg text-white/80 drop-shadow-md">
+        <p className="mt-6 text-lg text-white/80 drop-shadow-md">
           🎭 Your $LUCKY Hands NFT = Your Seat at the Game.
         </p>
-        <p className="text-sm md:text-md text-white/60 drop-shadow-md">
+        <p className="text-md text-white/60 drop-shadow-md">
           Only Lucky Hands holders can play. Only $LUCKY holders can win.
         </p>
       </div>

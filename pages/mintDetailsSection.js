@@ -4,11 +4,11 @@ export default function MintDetailsSection() {
   return (
     <section className="py-16 border-b border-gold/20 flex flex-col md:flex-row items-center justify-between">
       <div className="text-center md:text-left md:w-1/2 px-4">
-        <h2 className="text-2xl md:text-3xl font-bold text-gold mb-8 font-coiny">Mint Details 💰</h2>
-        <p className="text-md md:text-lg italic text-white/70 mb-6">
+        <h2 className="text-3xl font-bold text-gold mb-8 font-coiny">Mint Details 💰</h2>
+        <p className="text-lg italic text-white/70 mb-6">
           This isn&apos;t just an NFT. It&apos;s your hand. Play it right.
         </p>
-        <div className="space-y-4 text-white/90 text-sm md:text-base">
+        <div className="space-y-4 text-white/90 text-lg">
           <p>Mint Price: <span className="text-gold">7.77 AVAX</span></p>
           <p>777 total supply, 231 already airdropped to whole coiners</p>
           <p>Revenue from first 100 paid mints → buybacks for staking rewards</p>

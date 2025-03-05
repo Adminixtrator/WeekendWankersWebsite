@@ -4,8 +4,8 @@ export default function FAQSection() {
     return (
       <section className="py-16 flex flex-col md:flex-row items-center justify-between">
         <div className="text-center md:text-left md:w-1/2 px-4">
-          <h2 className="text-2xl md:text-3xl font-bold text-gold mb-8 font-coiny">FAQ 🤔</h2>
-          <div className="space-y-6 text-white/90 text-sm md:text-base">
+          <h2 className="text-3xl font-bold text-gold mb-8 font-coiny">FAQ 🤔</h2>
+          <div className="space-y-6 text-white/90 text-lg">
             <div>
               <p className="font-semibold">Q: How do I play the Lucky Hands game?</p>
               <p>A: You&apos;ll need a <strong>Lucky Hands NFT</strong> + and a <strong>TBA amount of $Lucky</strong> to enter each week.</p>

@@ -5,14 +5,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 export default function Home() {
-  const colors = {
-    primary: '#7AB87A',
-    secondary: '#A3D9A3',
-    accent: '#4A8F4A',
-    text: '#2E4D2E',
-    lucky: '#5cbb5c',
-  };
-
   return (
     <div className="min-h-screen bg-gradient-to-b from-yellow-400 to-yellow-900 flex flex-col items-center justify-center text-black font-comic-sans">
       <div className="absolute inset-0 bg-yellow-500 opacity-50"></div>
@@ -38,12 +30,6 @@ export default function Home() {
           />
           <h1 className="text-xl font-bold text-black font-coiny md:block hidden">Lucky Hands NFT</h1>
         </div>
-        {/* <a
-          href="/mint"
-          className="bg-green-600 text-white px-6 py-3 rounded-full hover:bg-green-700 transition font-semibold shadow-md hover:shadow-lg transform hover:scale-105 drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]"
-        >
-          Mint $LUCKY NFT
-        </a> */}
         
         <div className="flex items-center gap-2 md:mr-6">
           <nav aria-label="Contact Menu">
@@ -120,17 +106,17 @@ export default function Home() {
           className="rounded-lg shadow-xl transform hover:scale-105 transition-all duration-300 mb-6 drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]"
         />
         <div className="bg-yellow-300 p-6 rounded-lg mt-2 shadow-xl transform hover:scale-102 transition-all duration-300 text-center drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]">
-          <p className="mt-2">
+          <p className="mt-2 xl:text-md text-xl">
             Luck isn&apos;t random. It&apos;s a mindset.
             777 supply. Infinitely divisible. A meme coin for those who are always in the moment.
           </p>
 
-        <h2 className="font-coiny mt-8 text-xl">ABOUT LUCKY COIN</h2>
-          <p className="mt-2">
+        <h2 className="font-coiny mt-8 xl:text-xl text-2xl">ABOUT LUCKY COIN</h2>
+          <p className="mt-2 xl:text-md text-xl">
             Lucky Coin isn&apos;t just a token-it&apos;s a way of thinking. Luck favors those who are present, prepared, and ready to act. With only 777 full coins, ownership is scarce, but luck isn&apos;t about how much you hold-it&apos;s about holding the right thing. This isn&apos;t another copy-paste token. It&apos;s a movement built on serendipity, discipline, and knowing when to click.
           </p>
 
-          <p className="mt-6 font-bold">
+          <p className="mt-6 font-bold xl:text-md text-xl">
             Stay sharp. Stay $lucky.
           </p>
 
