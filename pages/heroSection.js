@@ -33,7 +33,7 @@ export default function HeroSection() {
         <div className="mt-6 text-white">
           <p className="text-lg">Mint Price: <span className="text-gold">7.77 AVAX</span></p>
           <p className="text-lg">Supply: <span className="text-gold">777 Total</span></p>
-          <p className="text-lg">Mint Date: <span className="text-gold">Thursday 10am CST</span></p>
+          {/* <p className="text-lg">Mint Date: <span className="text-gold">Thursday 10am CST</span></p> */}
         </div>
         <button 
           onClick={togglePopup}
