@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { ethers } from "ethers";
-import MyContractABI from "../contracts/MyContractABI.json"; // Ensure this path is correct
+import MyContractABI from "../contracts/MyContractABI.json";
 import { config } from "../dapp.config";
 import Image from "next/image";
 
 export default function PublicSale() {
   const [account, setAccount] = useState(null);
   const [contract, setContract] = useState(null);
-  const [provider, setProvider] = useState(null); // Added missing provider state
+  const [provider, setProvider] = useState(null);
   const [quantity, setQuantity] = useState(1);
   const [minValue] = useState(1);
   const [maxValue] = useState(5);
@@ -47,6 +47,20 @@ export default function PublicSale() {
       });
       return true;
     } catch (error) {
+      // This error code indicates the chain has not been added to MetaMask
+      if (error.code === 4902) {
+        try {
+          await window.ethereum.request({
+            method: "wallet_addEthereumChain",
+            params: [AVALANCHE_NETWORK_PARAMS],
+          });
+          return true;
+        } catch (addError) {
+          console.error("Error adding Avalanche network:", addError);
+          setErrorMessage(`Please add the ${NETWORK_NAME} to your wallet`);
+          return false;
+        }
+      }
       console.error("Error switching network:", error);
       setErrorMessage(`Please switch to ${NETWORK_NAME} in your wallet`);
       return false;
@@ -99,7 +113,10 @@ export default function PublicSale() {
       
       const correctChain = await checkNetwork();
       if (!correctChain) {
-        alert(`Please switch to ${NETWORK_NAME}`);
+        const confirmSwitch = window.confirm(`Please switch to ${NETWORK_NAME}`);
+        if (confirmSwitch) {
+          await switchNetwork();
+        }
       }
     } catch (error) {
       console.error("Error connecting wallet:", error);
@@ -190,7 +207,7 @@ export default function PublicSale() {
               >
                 CONNECT WALLET
               </button>
-              {errorMessage && <p className="mt-4 text-center text-red-500 text-sm">{errorMessage}</p>}
+              {errorMessage && <p className="mt-4 text-center text-red-800 text-sm">{errorMessage}</p>}
             </div>
           ) : (
             <div className="w-full">
@@ -204,12 +221,12 @@ export default function PublicSale() {
               >
                 {isMinting ? "Minting..." : `Mint ${quantity} NFT${quantity > 1 ? "s" : ""}`}
               </button>
-              {errorMessage && <p className="mt-4 text-center text-red-500 text-sm">{errorMessage}</p>}
+              {errorMessage && <p className="mt-4 text-center text-red-800 text-sm">{errorMessage}</p>}
               {transactionHash && (
                 <p className="mt-4 text-center text-[#5cbb5c] text-sm">
                   Transaction: 
-                  <a href={`https://etherscan.io/tx/${transactionHash}`} target="_blank" rel="noopener noreferrer" className="underline ml-1">
-                    View on Etherscan
+                  <a href={`https://snowtrace.io/tx/${transactionHash}`} target="_blank" rel="noopener noreferrer" className="underline ml-1">
+                    View on Snowtrace
                   </a>
                 </p>
               )}
@@ -232,5 +249,17 @@ export default function PublicSale() {
   );
 }
 
-const REQUIRED_CHAIN_ID = "0x1"; // Ethereum Mainnet
-const NETWORK_NAME = "Ethereum Mainnet";
+const REQUIRED_CHAIN_ID = "0xa86a";
+const NETWORK_NAME = "Avalanche C-Chain";
+
+const AVALANCHE_NETWORK_PARAMS = {
+  chainId: REQUIRED_CHAIN_ID,
+  chainName: "Avalanche C-Chain",
+  nativeCurrency: {
+    name: "Avalanche",
+    symbol: "AVAX",
+    decimals: 18
+  },
+  rpcUrls: ["https://api.avax.network/ext/bc/C/rpc"],
+  blockExplorerUrls: ["https://snowtrace.io/"]
+};
