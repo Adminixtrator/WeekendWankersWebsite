@@ -202,7 +202,7 @@ export default function PublicSale() {
                 disabled={isMinting || quantity > config.maxMintAmount || !isCorrectChain}
                 className={`w-full py-3 px-6 text-xl rounded-lg text-white border border-[#5cbb5c] transition ${isMinting || !isCorrectChain ? 'bg-red-600 cursor-not-allowed opacity-70' : 'bg-gradient-to-r from-black to-[#5cbb5c] hover:to-[#5cbb5c]/80'}`}
               >
-                {isMinting ? "Minting..." : `Mint ${quantity} $Lucky${quantity > 1 ? "s" : ""}`}
+                {isMinting ? "Minting..." : `Mint ${quantity} NFT${quantity > 1 ? "s" : ""}`}
               </button>
               {errorMessage && <p className="mt-4 text-center text-red-500 text-sm">{errorMessage}</p>}
               {transactionHash && (

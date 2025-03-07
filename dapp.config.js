@@ -1,7 +1,7 @@
 const config = {
   title: 'Lucky Hands',
   description: 'LUCKY',
-  contractAddress: '0xE45A480170662A9Cc65B51822e0D58Fc55dA8031',
+  contractAddress: '0x5A6C54d2bF3076349caCB9E37ED12d60C4BA83B2',
   maxMintAmount: 5,
   presaleMaxMintAmount: 1,
   price: 1
