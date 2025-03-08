@@ -296,7 +296,7 @@ export default function PublicSale() {
               objectFit="responsive"
               className="object-cover"
             />
-            <div className="flex absolute w-[75px] h-[30px] pt-[3px] top-3 md:left-3 left-7 justify-center items-center px-2 bg-[#0c4218] border border-[#5cbb5c]/30 rounded-md text-white text-sm z-10">
+            <div className="flex absolute w-[75px] h-[30px] pt-[3px] top-3 md:left-3 left-10 justify-center items-center px-2 bg-[#0c4218] border border-[#5cbb5c]/30 rounded-md text-white text-sm z-10">
             {totalSupply} <span className="text-[#5cbb5c]"> /{maxSupply}</span>
             </div>
           </div>
