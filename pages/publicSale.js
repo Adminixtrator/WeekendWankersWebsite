@@ -19,7 +19,7 @@ export default function PublicSale() {
   const [totalSupply, setTotalSupply] = useState(0);
   const [maxSupply, setMaxSupply] = useState(777);
   const [mintPrice, setMintPrice] = useState("7.77");
-  const [isMintActive, setIsMintActive] = useState(false);
+  const [isMintActive, setIsMintActive] = useState(true);
 
   useEffect(() => {
     checkIfWalletIsConnected();
@@ -148,7 +148,7 @@ export default function PublicSale() {
       
       const correctChain = await checkNetwork();
       if (!correctChain) {
-        const confirmSwitch = window.confirm(`Please switch to ${NETWORK_NAME}`);
+        const confirmSwitch = window.confirm(`Please switch to ${NETWORK_NAME} in your wallet. Click OK to automatically switch`);
         if (confirmSwitch) {
           await switchNetwork();
         }
@@ -239,7 +239,7 @@ export default function PublicSale() {
       if (!switched) return;
     }
     
-    if (!publicSaleActive) {
+    if (!isMintActive) {
       setErrorMessage("Public sale is not active at this time");
       return;
     }
@@ -269,10 +269,9 @@ export default function PublicSale() {
       setIsMinting(false);
       alert(`Successfully minted ${quantity} Lucky Hands NFT${quantity > 1 ? "s" : ""}!`);
     } catch (error) {
-      console.error("Error minting NFT:", error);
       setIsMinting(false);
       
-      if (error.code === "INSUFFICIENT_FUNDS") {
+      if (error.code === -32603) {
         setErrorMessage("Insufficient funds for gas + value");
       } else if (error.reason) {
         setErrorMessage(error.reason);
@@ -347,13 +346,12 @@ export default function PublicSale() {
               <button 
                 onClick={mintNFT}
                 disabled={isMinting || !isCorrectChain || !isMintActive || totalSupply >= maxSupply}
-                className={`w-full py-3 px-6 text-xl rounded-lg text-white border ${
-                  isMinting || !isCorrectChain || !isMintActive || totalSupply >= maxSupply ?
-                  'border-red-800' : 'border-[#5cbb5c]'
-                } transition ${
-                  isMinting || !isCorrectChain || !isMintActive || totalSupply >= maxSupply 
-                  ? 'bg-red-600 cursor-not-allowed opacity-70' 
-                  : 'bg-gradient-to-r from-black to-[#5cbb5c] hover:to-[#5cbb5c]/80'
+                className={`w-full py-3 px-6 text-xl rounded-lg text-white border transition ${
+                  !isCorrectChain || !isMintActive || totalSupply >= maxSupply 
+                  ? 'bg-red-800 cursor-not-allowed opacity-70' 
+                  : `bg-green-900 border-green-600 hover:bg-yellow-900/80 
+                    ${isMinting ? 'cursor-not-allowed' : ''} 
+                    drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]`
                 }`}
               >
                 {isMinting 
