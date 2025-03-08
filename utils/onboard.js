@@ -11,7 +11,7 @@ const walletConnectOptions = {
   projectId: 'LUCKY',
   requiredChains: [43114],
   optionalChains: [43113],
-  dappUrl: 'http://WeekendWankers.xyz',
+  dappUrl: 'https://getluckyonavax.xyz',
 };
 
 const initOnboard = init({
@@ -52,3 +52,18 @@ const initOnboard = init({
 });
 
 export { initOnboard };
+
+// flex absolute w-[75px] h-[30px] pt-[3px] top-3 left-3 justify-center items-center 
+
+/* <button 
+                onClick={mintNFT}
+                disabled={isMinting || !isCorrectChain || !isMintActive || totalSupply >= maxSupply}
+                className={`w-full py-3 px-6 text-xl rounded-lg text-white border ${
+                  isMinting || !isCorrectChain || !isMintActive || totalSupply >= maxSupply ?
+                  'border-red-800' : 'border-[#5cbb5c]'
+                } transition ${
+                  isMinting || !isCorrectChain || !isMintActive || totalSupply >= maxSupply 
+                  ? 'bg-red-600 cursor-not-allowed opacity-70' 
+                  : 'bg-gradient-to-r from-black to-[#5cbb5c] hover:to-[#5cbb5c]/80'
+                }`}
+              >*/

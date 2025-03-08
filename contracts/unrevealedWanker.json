@@ -1,12 +1,12 @@
 {
-    "name": "Unrevealed Wanker",
+    "name": "Unrevealed $Lucky",
     "description": "Lucky Hands is a 1,111 piece NFT collection inspired by a viral tweet frenzy, blending humor and digital art to gift unique, whimsical tokens to the spontaneous Avalanche community",
     "image": "ipfs://QmabaJarRkBYSkp41qSgr3FStpza6Bqp8UXqoj2MSQa454",
     "artist": "Octo",
       "attributes": [
         {
-          "trait_type": "Wanker",
-          "value": "Weekend"
+          "trait_type": "Hands",
+          "value": "Lucky"
         }
       ]
   }

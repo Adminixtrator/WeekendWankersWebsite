@@ -15,10 +15,21 @@ export default function PublicSale() {
   const [transactionHash, setTransactionHash] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const [isCorrectChain, setIsCorrectChain] = useState(false);
+  // New state variables
+  const [totalSupply, setTotalSupply] = useState(0);
+  const [maxSupply, setMaxSupply] = useState(777);
+  const [mintPrice, setMintPrice] = useState("7.77");
+  const [isMintActive, setIsMintActive] = useState(false);
 
   useEffect(() => {
     checkIfWalletIsConnected();
   }, []);
+
+  useEffect(() => {
+    if (contract && account) {
+      fetchContractData();
+    }
+  }, [contract, account]);
 
   const increment = () => {
     if (quantity < maxValue) setQuantity(quantity + 1);
@@ -64,6 +75,30 @@ export default function PublicSale() {
       console.error("Error switching network:", error);
       setErrorMessage(`Please switch to ${NETWORK_NAME} in your wallet`);
       return false;
+    }
+  }
+
+  async function fetchContractData() {
+    try {
+      if (!contract) return;
+      
+      // Get total supply
+      const supply = await contract.totalSupply();
+      setTotalSupply(supply.toNumber());
+      
+      // Get max supply
+      // const max = await contract.MAX_SUPPLY();
+      // setMaxSupply(max.toNumber());
+      
+      // Get mint price
+      // const price = await contract.mintPrice();
+      // setMintPrice(ethers.utils.formatEther(price));
+      
+      // Get mint status
+      const status = await contract.mintIsActive();
+      setIsMintActive(status);
+    } catch (error) {
+      console.error("Error fetching contract data:", error);
     }
   }
 
@@ -124,6 +159,77 @@ export default function PublicSale() {
     }
   }
 
+  // async function mintNFT() {
+  //   if (!account || !contract) return;
+    
+  //   const correctChain = await checkNetwork();
+  //   if (!correctChain) {
+  //     const switched = await switchNetwork();
+  //     if (!switched) return;
+  //   }
+    
+  //   if (!isMintActive) {
+  //     setErrorMessage("Minting is not active at this time");
+  //     return;
+  //   }
+    
+  //   if (totalSupply >= maxSupply) {
+  //     setErrorMessage("All NFTs have been minted");
+  //     return;
+  //   }
+    
+  //   try {
+  //     setIsMinting(true);
+  //     setErrorMessage("");
+      
+  //     // Calculate total price based on quantity
+  //     const totalPrice = ethers.utils.parseEther((parseFloat(mintPrice) * quantity).toString());
+      
+  //     // Call the mint function multiple times if quantity > 1
+  //     let transaction;
+      
+  //     if (quantity === 1) {
+  //       // For single mints, use the simple mint function
+  //       transaction = await contract.mint({ value: totalPrice });
+  //     } else {
+  //       // For multiple mints, call mint multiple times
+  //       // Note: This is less efficient than a batch mint function
+  //       // Better solution would be to modify the contract to support batch minting
+  //       const mintPromises = [];
+  //       const singlePrice = ethers.utils.parseEther(mintPrice);
+        
+  //       for (let i = 0; i < quantity; i++) {
+  //         mintPromises.push(contract.mint({ value: singlePrice }));
+  //       }
+        
+  //       // Use the first transaction for tracking
+  //       const transactions = await Promise.all(mintPromises);
+  //       transaction = transactions[0];
+  //     }
+      
+  //     setTransactionHash(transaction.hash);
+      
+  //     await transaction.wait();
+      
+  //     // Refresh contract data
+  //     fetchContractData();
+      
+  //     setIsMinting(false);
+  //     alert(`Successfully minted ${quantity} Lucky Hands NFT${quantity > 1 ? "s" : ""}!`);
+  //   } catch (error) {
+  //     console.error("Error minting NFT:", error);
+  //     setIsMinting(false);
+      
+  //     if (error.code === "INSUFFICIENT_FUNDS") {
+  //       setErrorMessage("Insufficient funds for gas + value");
+  //     } else if (error.reason) {
+  //       setErrorMessage(error.reason);
+  //     } else {
+  //       setErrorMessage("Failed to mint NFT. Please try again.");
+  //     }
+  //   }
+  // }
+
   async function mintNFT() {
     if (!account || !contract) return;
     
@@ -133,22 +239,46 @@ export default function PublicSale() {
       if (!switched) return;
     }
     
+    if (!publicSaleActive) {
+      setErrorMessage("Public sale is not active at this time");
+      return;
+    }
+    
+    if (totalSupply >= maxSupply) {
+      setErrorMessage("All NFTs have been minted");
+      return;
+    }
+    
     try {
       setIsMinting(true);
       setErrorMessage("");
       
-      const totalPrice = ethers.utils.parseEther((config.price * quantity).toString());
+      // Calculate total price based on quantity
+      const totalPrice = ethers.utils.parseEther((parseFloat(mintPrice) * quantity).toString());
+      
+      // Call the publicSaleMint function with quantity parameter
       const transaction = await contract.publicSaleMint(quantity, { value: totalPrice });
+      
       setTransactionHash(transaction.hash);
       
       await transaction.wait();
       
+      // Refresh contract data
+      fetchContractData();
+      
       setIsMinting(false);
-      alert(`Successfully minted ${quantity} ${config.title}!`);
+      alert(`Successfully minted ${quantity} Lucky Hands NFT${quantity > 1 ? "s" : ""}!`);
     } catch (error) {
       console.error("Error minting NFT:", error);
       setIsMinting(false);
-      setErrorMessage(error.code === "INSUFFICIENT_FUNDS" ? "Insufficient funds + gas" : "Failed to mint NFT");
+      
+      if (error.code === "INSUFFICIENT_FUNDS") {
+        setErrorMessage("Insufficient funds for gas + value");
+      } else if (error.reason) {
+        setErrorMessage(error.reason);
+      } else {
+        setErrorMessage("Failed to mint NFT. Please try again.");
+      }
     }
   }
 
@@ -167,8 +297,8 @@ export default function PublicSale() {
               objectFit="responsive"
               className="object-cover"
             />
-            <div className="absolute w-[55px] top-3 left-7 py-1 px-2 bg-[#0c4218] border border-[#5cbb5c]/30 rounded-md text-white text-sm z-10">
-              0 <span className="text-[#5cbb5c]">/ 0</span>
+            <div className="flex absolute w-[75px] h-[30px] pt-[3px] top-3 left-3 justify-center items-center px-2 bg-[#0c4218] border border-[#5cbb5c]/30 rounded-md text-white text-sm z-10">
+            {totalSupply} <span className="text-[#5cbb5c]"> /{maxSupply}</span>
             </div>
           </div>
         </div>
@@ -195,7 +325,7 @@ export default function PublicSale() {
           <div className="h-px bg-[#5cbb5c]/30 w-full mb-4" />
           <div className="flex justify-between w-full text-xl text-white mb-4">
             <p>Total</p>
-            <p>{quantity * 7.77} <span className="text-orange-400 drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]">AVAX</span></p>
+            <p>{(quantity * parseFloat(mintPrice)).toFixed(2)} <span className="text-orange-400 drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]">AVAX</span></p>
           </div>
           <div className="h-px bg-[#5cbb5c]/30 w-full mb-6" />
 
@@ -216,10 +346,24 @@ export default function PublicSale() {
               </p>
               <button 
                 onClick={mintNFT}
-                disabled={isMinting || quantity > config.maxMintAmount || !isCorrectChain}
-                className={`w-full py-3 px-6 text-xl rounded-lg text-white border border-[#5cbb5c] transition ${isMinting || !isCorrectChain ? 'bg-red-600 cursor-not-allowed opacity-70' : 'bg-gradient-to-r from-black to-[#5cbb5c] hover:to-[#5cbb5c]/80'}`}
+                disabled={isMinting || !isCorrectChain || !isMintActive || totalSupply >= maxSupply}
+                className={`w-full py-3 px-6 text-xl rounded-lg text-white border ${
+                  isMinting || !isCorrectChain || !isMintActive || totalSupply >= maxSupply ?
+                  'border-red-800' : 'border-[#5cbb5c]'
+                } transition ${
+                  isMinting || !isCorrectChain || !isMintActive || totalSupply >= maxSupply 
+                  ? 'bg-red-600 cursor-not-allowed opacity-70' 
+                  : 'bg-gradient-to-r from-black to-[#5cbb5c] hover:to-[#5cbb5c]/80'
+                }`}
               >
-                {isMinting ? "Minting..." : `Mint ${quantity} NFT${quantity > 1 ? "s" : ""}`}
+                {isMinting 
+                  ? "Minting..." 
+                  : !isMintActive 
+                    ? "Minting Not Active" 
+                    : totalSupply >= maxSupply 
+                      ? "Sold Out" 
+                      : `Mint ${quantity} NFT${quantity > 1 ? "s" : ""}`
+                }
               </button>
               {errorMessage && <p className="mt-4 text-center text-red-800 text-sm">{errorMessage}</p>}
               {transactionHash && (
@@ -231,7 +375,7 @@ export default function PublicSale() {
                 </p>
               )}
               {!isCorrectChain && (
-                <p className="mt-4 text-center text-red-500 text-sm">
+                <p className="mt-4 text-center text-red-800 text-sm">
                   Please switch to {NETWORK_NAME}
                 </p>
               )}
